@@ -1,2 +1,43 @@
-<h1>Home#index</h1>
-<p>Find me in app/views/home/index.html.erb</p>
+<!-- ページの内容を定期的に更新するJavaScriptのコード -->
+<script>
+  function autoRefresh() {
+    // 現在のページを定期的にリロード
+    location.reload();
+  }
+
+  // 60秒ごとに自動更新を実行
+  setInterval(autoRefresh, 60000); // 60000ミリ秒 = 60秒
+</script>
+
+<h1>ログ情報</h1>
+
+<%= pie_chart @logs.group(:log_message).count, library: { responsive: true } %>
+
+<table>
+  <thead>
+    <tr>
+      <th>ログ情報</th>
+      <th>作成日時</th>
+      <th>更新日時</th>
+      <th>User</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @logs.each do |log| %>
+      <tr>
+        <td><%= log.log_message %></td>
+        <td><%= log.created_at %></td>
+        <td><%= log.updated_at %></td>
+        <td><%= log.user.email %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<% if @log_saved %>
+  <p>ログの保存に成功しています。</p>
+<% else %>
+  <p>ログの保存に失敗しました。エラー: <%= @error_message %></p>
+<% end %>
