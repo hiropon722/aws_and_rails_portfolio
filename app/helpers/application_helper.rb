@@ -26,12 +26,7 @@ module ApplicationHelper
   # Linux用のメソッド
   def get_active_window_title_linux
       # DISPLAY変数を取得するためのコマンドを実行
-    display_cmd = 'echo $DISPLAY'
-    display = `#{display_cmd}`.strip
-
-    # xpropコマンドでウィンドウのタイトルを取得
-    xprop_cmd = "xprop -id $(xprop -root _NET_ACTIVE_WINDOW | awk '{print $5}') _NET_WM_NAME"
-    title = `#{xprop_cmd} | awk -F '\"' '{print $2}'`.strip
+      ''
   end
 
   # Windows用のメソッド
