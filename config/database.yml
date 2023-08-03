@@ -21,5 +21,13 @@ test:
   database: db/test.sqlite3
 
 production:
-  <<: *default
-  database: db/production.sqlite3
+  adapter: mysql2
+  encoding: utf8
+  reconnect: false
+  database: aws_and_rails_portfolio_production
+  pool: 5
+  username: ENV['DATABASE_USERNAME']
+  password: ENV['DATABASE_PASSWORD']
+  socket: /var/lib/mysql/mysql.sock
+  host: aws-and-infra-web.cbm2wi8g9xm3.ap-northeast-1.rds.amazonaws.com
+  timeout: 5000
