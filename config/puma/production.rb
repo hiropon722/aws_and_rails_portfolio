@@ -1,5 +1,5 @@
 # bind "unix://#{Rails.root.join('tmp/sockets/puma.sock')}"だとpumactlコマンドで読み込まないため絶対パスで指定
-root_dir = '/var/www/and_and_rails_portfolio'
+root_dir = '/var/www/aws_and_rails_portfolio'
 
 max_threads_count = ENV.fetch('RAILS_MAX_THREADS', 5)
 min_threads_count = ENV.fetch('RAILS_MIN_THREADS', max_threads_count)
