@@ -10,6 +10,7 @@
 </script>
 
 <h1>ログ情報</h1>
+<p>現在のOS: <%= @os_info %></p>
 
 <%= pie_chart @logs.group(:log_message).count, library: { responsive: true } %>
 
