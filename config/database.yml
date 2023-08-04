@@ -26,8 +26,8 @@ production:
   reconnect: false
   database: aws_and_rails_portfolio_production
   pool: 5
-  username: ENV['DATABASE_USERNAME']
-  password: ENV['DATABASE_PASSWORD']
+  username: <%= ENV['DATABASE_USERNAME'] %>
+  password: <%= ENV['DATABASE_PASSWORD'] %>
   socket: /var/lib/mysql/mysql.sock
   host: aws-and-infra-web.cbm2wi8g9xm3.ap-northeast-1.rds.amazonaws.com
   timeout: 5000
