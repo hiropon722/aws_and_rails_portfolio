@@ -5,7 +5,6 @@
 # and maximum; this matches the default thread size of Active Record.
 #
 
-root_dir  '/var/www/aws_and_rails_portfolio'
 
 max_threads_count = ENV.fetch("RAILS_MAX_THREADS") { 5 }
 min_threads_count = ENV.fetch("RAILS_MIN_THREADS") { max_threads_count }
