@@ -22,8 +22,12 @@ gem "sprockets-rails"
 gem "mysql2", "~> 0.5"
 gem 'sqlite3'
 
+gem 'jquery-rails'
+
 # Use the Puma web server [https://github.com/puma/puma]
 gem "puma", "~> 5.0"
+
+gem "simple_calendar"
 
 # Use JavaScript with ESM import maps [https://github.com/rails/importmap-rails]
 gem "importmap-rails"

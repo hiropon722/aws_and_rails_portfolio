@@ -4,3 +4,6 @@ import "controllers"
 import 'bootstrap'
 import "chartkick"
 import "Chart.bundle"
+import "jquery"
+import "jquery-ujs"
+window.$ = window.jQuery = require('jquery');

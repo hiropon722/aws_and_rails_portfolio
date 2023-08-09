@@ -1,0 +1,111 @@
+<div class="simple-calendar">
+  <div class="calendar-heading">
+    <%= link_to t('simple_calendar.previous', default: '前週'), calendar.url_for_previous_view %>
+    <% if calendar.number_of_weeks == 1 %>
+      <span class="calendar-title"><%= t('simple_calendar.week', default: '1週間') %></span>
+    <% else %>
+      <span class="calendar-title"><%= t('simple_calendar.week', default: '1週間') %></span>
+    <% end %>
+    <%= link_to t('simple_calendar.next', default: '翌週'), calendar.url_for_next_view %>
+    <% schedules = Schedule.schedules_after_three_month %>
+  </div>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>時間</th>
+        <% date_range.slice(0, 7).each do |day| %>
+          <th><%= t('date.abbr_day_names')[day.wday] %></th>
+        <% end %>
+      </tr>
+    </thead>
+    <tbody>
+      <% date_range.each_slice(7) do |week| %>
+        <tr>
+          <td></td>
+          <% week.each do |day| %>
+            <%= content_tag :td, class: calendar.td_classes_for(day) do %>
+              <% if defined?(Haml) && respond_to?(:block_is_haml?) && block_is_haml?(passed_block) %>
+                <% capture_haml(day, sorted_events.fetch(day, []), &passed_block) %>
+              <% else %>
+                <% passed_block.call day, sorted_events.fetch(day, []) %>
+              <% end %>
+            <% end %>
+          <% end %>
+        </tr>
+        <% times.each do |time| %>
+          <tr>
+            <td><%= time %></td>
+            <% week.each do |day| %>
+              <td>
+                <% if check_schedule(schedules, day, time) %>
+                  <%= '×' %>
+                <% else %>
+                  <!-- 追加 -->
+                  <%= link_to new_schedule_path(day: day, time: time) do %>
+                    <%= '○' %>
+                  <% end %>
+                  <!-- ここまで -->
+                <% end %>
+              </td>
+            <% end %>
+          </tr>
+        <% end %>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+
+<!--<script>-->
+<!--  function updateSchedules() {-->
+<!--    $('.schedule-link').each(function() {-->
+<!--      var cell = $(this).closest('td');-->
+<!--      var day = $(this).data('day');-->
+<!--      var time = $(this).data('time');-->
+
+      console.log('Sending Ajax request...'); // デバッグログを追加
+
+
+<!--      $.ajax({-->
+<!--        url: '/schedules/check_schedule',-->
+<!--        method: 'GET',-->
+<!--        data: { day: day, time: time },-->
+<!--        success: function(response) {-->
+          console.log('Ajax response received:'); // デバッグログを追加
+          console.log(response); // デバッグログでレスポンスを出力してみる
+<!--          if (response.exists) {-->
+<!--            cell.html('×');-->
+<!--          } else {-->
+<!--            cell.html('<a href="' + response.path + '">○</a>');-->
+<!--          }-->
+<!--        }-->
+<!--      });-->
+<!--    });-->
+  
+      // 新しいリンクがクリックされたときの処理を追加
+<!--    $(document).on('click', '.schedule-new-link', function(event) {-->
+<!--      event.preventDefault();-->
+<!--      var day = $(this).data('day');-->
+<!--      var time = $(this).data('time');-->
+      
+      // dayとtimeを含めて新しいスケジュール作成ページに遷移
+<!--      window.location.href = '/schedules/new?day=' + day + '&time=' + time;-->
+<!--    });-->
+<!--  }-->
+
+
+  // ページ読み込み時に実行
+<!--  $(document).ready(function() {-->
+<!--    updateSchedules();-->
+    
+<!--        $('.update-trigger').on('click', function() {-->
+<!--      handleUpdateEvent();-->
+<!--    });-->
+    
+<!--  });-->
+
+  // 他の更新トリガーがある場合、それに応じて実行する
+  // 例えば、ページ内のフォームが送信されたときなど
+<!--  function handleUpdateEvent() {-->
+<!--    updateSchedules();-->
+<!--  }-->
+<!--</script>-->

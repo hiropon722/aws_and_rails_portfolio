@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_08_01_060346) do
+ActiveRecord::Schema[7.0].define(version: 2023_08_07_070243) do
   create_table "logs", force: :cascade do |t|
     t.text "log_message"
     t.datetime "created_at", null: false
@@ -18,6 +18,16 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_01_060346) do
     t.integer "user_id"
     t.string "product_name"
     t.index ["user_id"], name: "index_logs_on_user_id"
+  end
+
+  create_table "schedules", force: :cascade do |t|
+    t.date "day", null: false
+    t.string "time", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.datetime "start_time", null: false
+    t.index ["user_id"], name: "index_schedules_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|

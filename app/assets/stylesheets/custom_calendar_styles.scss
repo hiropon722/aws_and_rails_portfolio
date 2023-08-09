@@ -1,0 +1,11 @@
+
+/* テーブルのヘッダー */
+.simple-calendar table th:first-child,
+.simple-calendar table td:first-child {
+  width: 7.5%; /* 1番目の列の幅を狭く設定 */
+}
+
+.simple-calendar table th:not(:first-child),
+.simple-calendar table td:not(:first-child) {
+  width: 12.85%; /* 他の7つの列を均等に設定 (100% / 7) */
+}
