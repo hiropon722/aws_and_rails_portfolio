@@ -1,6 +1,7 @@
 module SchedulesHelper
   def times
-    times = ["9:00",
+    times = [
+      "00:00","9:00",
              "9:30",
              "10:00",
              "10:30",

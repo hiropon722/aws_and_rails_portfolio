@@ -1,7 +1,12 @@
+<% content_for :title do %>
+  スケジュール一覧
+<% end %>
+
+<% content_for :content do %>
 <div class="container-fluid">
   <h2 class="section-top"><span class="fas fa-dumbbell" aria-hidden="true"></span> Your Schedule</h2>
   <div class="col-md-3 col-sm-12 col-xs-12">
-    <%= form_for @schedule do |f| %>
+    <%= form_for @schedule, id: 'create-form' do |f| %>
       <div class="field row">
         <label for="plan">予定</label>
         <p><%= f.text_area :plan %></p>
@@ -9,9 +14,12 @@
         <p><%= f.date_select :day %></p>
         <label for="time">時間</label>
         <p>
-          <%= f.select :time, [["9:00", "9:00"], ["9:30", "9:30"], ["10:00", "10:00"]], {}, class: "form-control" %>
+            <%= f.collection_check_boxes :time, [["8:00", "8:00"], ["8:30", "8:30"], ["9:00", "9:00"], ["9:30", "9:30"], ["10:00", "10:00"], ["10:30", "10:30"], ["11:00", "11:00"], ["11:30", "11:30"], ["12:00", "12:00"], ["12:30", "12:30"], ["13:00", "13:00"], ["13:30", "13:30"], ["14:00", "14:00"], ["14:30", "14:30"], ["15:00", "15:00"], ["15:30", "15:30"], ["16:00", "16:00"], ["16:30", "16:30"], ["17:00", "17:00"], ["17:30", "17:30"], ["18:00", "18:00"], ["18:30", "18:30"], ["19:00", "19:00"], ["19:30", "19:30"], ["20:00", "20:00"]], :last, :first, { include_hidden: false } do |b| %>
+            <%= b.check_box %>
+            <%= b.label %>
+          <% end %>
         </p>
-        <label for="plan">重要度</label>
+        <label for="importance">重要度</label>
         <p>  <%= f.select :importance, [['低', '低'], ['中', '中'], ['高', '高']], {}, class: 'form-control' %></p>
       </div>
       <div class="actions row">
@@ -44,7 +52,7 @@
 					<tr>
 						<td><%= schedule.plan%></td>
 						<td><%= schedule.day%></td>
-						<td><%= schedule.start_time.strftime("%Y-%m-%d %H:%M")%></td>
+						<td><%= schedule.start_time.in_time_zone("Tokyo").strftime("%Y-%m-%d %H:%M") %></td>
 						<td><%=link_to "編集" , edit_schedule_path(schedule),:class=>"btn04"  %></td>
 						<td><%=button_to "削除", schedule_path(schedule) , method: :delete , data: {confirm:"削除しますか"} ,:class=>"btn03"%></td>
 					</tr>
@@ -53,3 +61,4 @@
   		</table>
   </div>
 </div>
+<% end %>

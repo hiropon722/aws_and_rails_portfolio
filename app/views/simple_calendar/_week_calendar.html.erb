@@ -13,8 +13,7 @@
     <thead>
       <tr>
         <th>時間</th>
-        <% start_date = Date.current %>
-        <% date_range = (start_date..(start_date + 6.days)).to_a %>
+
         <% date_range.slice(0, 7).each do |day| %>
           <th><%= t('date.abbr_day_names')[day.wday] %></th>
         <% end %>
@@ -34,19 +33,34 @@
             <% end %>
           <% end %>
         </tr>
-        <% times.each do |time| %>
-          <tr>
-            <td><%= time %></td>
-            <% week.each do |day| %>
-              <td>
-                <% schedule = find_schedule(@schedules, day, time) %>
-                <% if schedule.present? %>
-                  <%= link_to schedule.plan, edit_schedule_path(schedule) %>
-                <% end %>
-              </td>
-            <% end %>
-          </tr>
+<% times.each do |time| %>
+  <tr>
+    <td class="time-cell"><%= time %></td>
+    <% week.each do |day| %>
+      <% schedule = find_schedule(@schedules, day, time) %>
+      <% cell_classes = calendar.td_classes_for(day) %>
+      <% if schedule.present? %>
+        <% cell_classes << 'has-schedule' %>
+        <% case schedule.importance %>
+          <% when '高'
+            cell_classes << 'high-importance'
+          when '中'
+            cell_classes << 'medium-importance'
+          when '低'
+            cell_classes << 'low-importance'
+          else
+            # その他の場合にデフォルトのクラスを追加
+            cell_classes << 'default-importance' %>
         <% end %>
+      <% end %>
+      <td class="<%= cell_classes.join(' ') %>">
+      <% if schedule.present? %>
+        <%= link_to schedule.plan, edit_schedule_path(schedule) %>
+      <% end %>
+    </td>
+    <% end %>
+  </tr>
+<% end %>
       <% end %>
     </tbody>
   </table>

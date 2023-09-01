@@ -10,6 +10,8 @@ gem "rails", "~> 7.0.6"
 gem 'rails-i18n'
 gem 'devise-i18n'
 
+gem 'haml'
+
 gem 'ffi'
 gem 'sys-proctable'
 gem 'chartkick'

@@ -7,7 +7,7 @@ create_table "schedules", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.datetime "start_time", null: false
+    t.datetime "start_time", null: false # デフォルト値を設定
     t.string :importance, null: false
     t.index ["user_id"], name: "index_schedules_on_user_id"
     end

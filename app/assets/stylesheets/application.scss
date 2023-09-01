@@ -37,3 +37,27 @@
    background: #98fb98;
  }
 }
+
+/* has-scheduleクラスを持つセルのスタイル */
+/* スケジュールに適用されるデフォルトのスタイル */
+td.has-schedule {
+  font-weight: bold;
+  /* その他のスタイル */
+}
+/* 高い重要度のスケジュール */
+td.high-importance {
+  background: #FF0000 !important; /* 赤色の背景 */
+  color: #FFF; /* 白色のテキスト */
+}
+
+/* 中程度の重要度のスケジュール */
+td.medium-importance {
+  background: #FFFF00 !important; /* 黄色の背景 */
+  color: #000; /* 黒色のテキスト */
+}
+
+/* 低い重要度のスケジュール */
+td.low-importance {
+  background: #00FF00 !important; /* 緑色の背景 */
+  color: #000; /* 黒色のテキスト */
+}

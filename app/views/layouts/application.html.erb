@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Aws And Rails Portfolio</title>
+    <title><%= yield :title %></title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -15,7 +15,7 @@
   <body>
   <header>
   <nav class="navbar navbar-expand navbar-light">
-    <%= link_to "サンプル", root_path, class: 'navbar-brand' %>
+    <%= link_to "AWS-and-Rails-Portfolio", root_path, class: 'navbar-brand' %>
     <div id="Navber">
       <ul class="navbar-nav">
         <% if user_signed_in? %>
@@ -39,6 +39,6 @@
 </header>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
-    <%= yield %>
+    <%= yield :content%>
   </body>
 </html>

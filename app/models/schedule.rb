@@ -1,6 +1,11 @@
 class Schedule < ApplicationRecord
     belongs_to :user
-    
+    validates :plan, presence: true
+    validates :day, presence: true
+    validates :time, presence: true
+    validates :user_id, presence: true
+    validates :start_time, presence: true
+    validates :importance, presence: true
     
     def self.schedules_after_three_month
     # 今日から3ヶ月先までのデータを取得

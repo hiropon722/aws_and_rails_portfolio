@@ -1,6 +1,10 @@
 <!-- ページの内容を定期的に更新するJavaScriptのコード -->
+<% content_for :title do %>
+  AWS-and-Rails-Portfolio Top
+<% end %>
 <meta name="csrf-token" content="<%= form_authenticity_token %>" />
 
+<% content_for :content do %>
 <h1>ログ情報</h1>
 <p id="os-info"></p>
 <p id="window-info"></p>
@@ -28,4 +32,6 @@
 
 <% if user_signed_in?%>
   <li><%= link_to 'View Schedule', schedules_path %></li>
+<% end %>
+
 <% end %>

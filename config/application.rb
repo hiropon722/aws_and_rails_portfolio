@@ -14,6 +14,7 @@ module AwsAndRailsPortfolio
     config.i18n.default_locale = :ja
     # タイムゾーン変更
     config.time_zone = 'Asia/Tokyo'
+    config.active_record.default_timezone = :local
     # Configuration for the application, engines, and railties goes here.
     #
     # These settings can be overridden in specific environments using the files
