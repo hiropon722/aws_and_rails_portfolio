@@ -15,7 +15,7 @@ gem 'haml'
 gem 'ffi'
 gem 'sys-proctable'
 gem 'chartkick'
-#gem 'chart-js-rails'
+gem 'chart-js-rails'
 
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem "sprockets-rails"

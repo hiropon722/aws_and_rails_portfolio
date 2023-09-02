@@ -1,3 +1,8 @@
+<% content_for :title do %>
+  AWS-and-Rails-Portfolio Sign up
+<% end %>
+
+<% content_for :content do %>
 <h1><%= t('.sign_up') %></h1>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
@@ -28,3 +33,4 @@
 <% end %>
 
 <%= render 'devise/shared/links' %>
+<% end %>

@@ -1,7 +1,10 @@
 module SchedulesHelper
   def times
     times = [
-      "00:00","9:00",
+      "一日の予定",
+      "8:00",
+      "8:30",
+      "9:00",
              "9:30",
              "10:00",
              "10:30",
@@ -17,7 +20,9 @@ module SchedulesHelper
              "17:30",
              "18:00",
              "18:30",
-             "19:00"]
+             "19:00",
+             "19:30",
+             "20:00"]
   end
   
   def check_schedule(schedules, day, time)

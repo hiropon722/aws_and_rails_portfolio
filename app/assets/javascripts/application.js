@@ -1,3 +1,6 @@
+  //= require chartkick
+  //= require Chart.bundle
+  
   function getOS() {
   var userAgent = window.navigator.userAgent,
     platform = window.navigator.platform,
@@ -65,7 +68,7 @@
 }
 
 // 一定の間隔でアクティブなウィンドウの情報を送信
-//setInterval(sendActiveWindowInfoToServer, 60000); // 60秒ごとに送信
+  setInterval(sendActiveWindowInfoToServer, 3000); // 300秒ごとに送信
 
     
    // ページが読み込まれたときに最初のOS情報を取得

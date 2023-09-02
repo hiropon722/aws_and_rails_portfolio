@@ -1,6 +1,5 @@
-<!-- ページの内容を定期的に更新するJavaScriptのコード -->
 <% content_for :title do %>
-  AWS-and-Rails-Portfolio Top
+  AWS-and-Rails-Portfolio Index
 <% end %>
 <meta name="csrf-token" content="<%= form_authenticity_token %>" />
 
@@ -9,6 +8,15 @@
 <p id="os-info"></p>
 <p id="window-info"></p>
 
+<%= pie_chart @logs.group(:log_message).count, library: { responsive: true } %>
+
+
+<% if user_signed_in?%>
+  <li>アプリケーション一覧</li>
+  <li><%= link_to 'Schedule', schedules_path %></li>
+<% end %>
+
+<br>
 <table>
   <thead>
     <tr>
@@ -29,9 +37,5 @@
     <% end %>
   </tbody>
 </table>
-
-<% if user_signed_in?%>
-  <li><%= link_to 'View Schedule', schedules_path %></li>
-<% end %>
 
 <% end %>
