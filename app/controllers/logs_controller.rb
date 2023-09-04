@@ -10,8 +10,10 @@ class LogsController < ApplicationController
 
     if @log.save
       head :ok
+      flash[:success] = "ログが正常に保存されました。"
     else
       head :unprocessable_entity
+      flash[:error] = "ログの保存中にエラーが発生しました。"
     end
   end
   
