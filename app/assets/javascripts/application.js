@@ -87,14 +87,5 @@
   　};    
   　
     sendLogDataToServer(data);
-    
-    // Save Active Window ボタンの要素を取得
-    var saveButton = document.getElementById('save-active-window-button');
-  
-    // Saveボタンがクリックされたときの処理
-    saveButton.addEventListener('click', function() {
-      sendActiveWindowInfoToServer();
-  });
-
   });
   
