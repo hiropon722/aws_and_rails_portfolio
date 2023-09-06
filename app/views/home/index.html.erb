@@ -1,9 +1,3 @@
-<script src="https://cdn.ravenjs.com/3.27.2/raven.min.js"></script>
-<script>
-  Raven.config('https://9a0ffdb271bef5286720aa81f18f703a@o4505832069857280.ingest.sentry.io/4505832078835712').install();
-</script>
-
-
 <% content_for :title do %>
   AWS-and-Rails-Portfolio Index
 <% end %>
@@ -13,6 +7,8 @@
 <h1>ログ情報</h1>
 <p id="os-info"></p>
 <p id="window-info"></p>
+
+<button id="save-active-window-button">Save Active Window</button>
 
 <%= pie_chart @logs.group(:log_message).count, library: { responsive: true } %>
 

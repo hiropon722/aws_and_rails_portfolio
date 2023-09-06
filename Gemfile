@@ -12,9 +12,6 @@ gem 'devise-i18n'
 
 gem 'haml'
 
-gem "sentry-ruby"
-gem "sentry-rails"
-
 gem 'ffi'
 gem 'sys-proctable'
 gem 'chartkick'
