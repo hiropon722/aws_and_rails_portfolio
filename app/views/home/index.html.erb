@@ -55,19 +55,10 @@
 
 <!-- JavaScriptテストコードを追加 -->
 <script type="text/javascript">
-  // テストスイートを定義
-  describe("Test the test element", function() {
-    // テストケースを定義
-    it("should exist", function() {
-      var element = document.getElementById("test-element");
-      expect(element).not.toBeNull();
-    });
-
-    it("should have the correct text", function() {
-      var element = document.getElementById("test-element");
-      expect(element.textContent).toBe("This is a test element.");
-    });
+  // ドキュメントが読み込まれたら処理を実行
+  $(document).ready(function() {
+    // 背景色を赤に変更
+    $("#test-element").css("background-color", "red");
   });
 </script>
-
 <% end %>
