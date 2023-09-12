@@ -31,8 +31,12 @@ class SchedulesController < ApplicationController
     day = params[:schedule]['day(3i)']
     selected_date = "#{year}-#{month}-#{day}"
 
-    if times.nil? || times.empty?
+    if selected_date.to_date <= Date.today
       success = false
+      flash[:alert] = "過去の日付にスケジュールを作成することはできません"
+    elsif times.nil? || times.empty?
+      success = false
+      flash[:alert] = "時間が選択されていません"
     else
       times.each do |time|
       start_datetime = Time.zone.parse("#{selected_date} #{time}")
