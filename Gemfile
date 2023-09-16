@@ -11,6 +11,7 @@ gem 'rails-i18n'
 gem 'devise-i18n'
 
 gem 'haml'
+gem 'roo'
 
 gem 'ffi'
 gem 'sys-proctable'

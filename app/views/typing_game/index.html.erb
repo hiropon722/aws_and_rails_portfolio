@@ -1,2 +1,16 @@
-<h1>TypingGame#index</h1>
-<p>Find me in app/views/typing_game/index.html.erb</p>
+<% content_for :title do %>
+  AWS-and-Rails-Portfolio Typing
+<% end %>
+
+<% content_for :content do %>
+    <div id="game-container">
+        <h1>タイピングゲーム</h1>
+        <button id="start-button">ゲームスタート</button>
+        <p id="word-display">ここに単語が表示されます</p>
+        <input type="text" id="user-input" autofocus>
+        <p id="score">得点: <span id="score-value">0</span></p>
+        <p id="timer">時間: <span id="timer-value">60</span></p>
+    </div>
+    <script src="/assets/typing_game.js"></script>
+    
+<% end %>

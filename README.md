@@ -31,11 +31,6 @@
 
 ![portfolio_login](https://github.com/hiropon722/aws_and_rails_portfolio/assets/130029168/692ef5f5-1779-4c36-8cbc-0a275c56d773)
 
-<h2 align="center">〜ログイン機能〜</h2>
-<p align="center">DeviseとBluestrapを使ってログイン機構を作成</p>
-
-![portfolio_login](https://github.com/hiropon722/aws_and_rails_portfolio/assets/130029168/692ef5f5-1779-4c36-8cbc-0a275c56d773)
-
 <h2 align="center">〜スケジュール機能〜</h2>
 <p align="center">simple_calendarを活用して週ごとのスケジュール機能を作成</p>
 

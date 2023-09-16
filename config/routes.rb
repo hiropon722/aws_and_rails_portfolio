@@ -8,4 +8,5 @@ Rails.application.routes.draw do
   post '/save-log', to: 'logs#save_log'
   post '/save-active-window', to: 'logs#save_active_window'
   get '/typing_game', to: 'typing_game#index'
+  get '/words/random_word', to: 'words#random_word'
 end
