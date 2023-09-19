@@ -1,4 +1,4 @@
-  // app/assets/javascripts/application.js
+  // app/assets/javascripts/typing_game.js
   //= require jquery
   //= require jquery_ujs
   //= require chartkick
