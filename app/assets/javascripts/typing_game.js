@@ -1,3 +1,9 @@
+  // app/assets/javascripts/application.js
+  //= require jquery
+  //= require jquery_ujs
+  //= require chartkick
+  //= require Chart.bundle
+
 const startButton = document.getElementById("start-button");
 
 // ゲームの単語リスト
