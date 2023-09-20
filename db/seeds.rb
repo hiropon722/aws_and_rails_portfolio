@@ -7,6 +7,6 @@
 #   Character.create(name: "Luke", movie: movies.first)
 require 'csv'
 
-CSV.foreach('db/csv/words.csv', headers: true) do |row|
+CSV.foreach('db/words.csv', headers: true) do |row|
   Word.create(word: row['word'])
 end
