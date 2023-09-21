@@ -18,6 +18,10 @@ gem 'sys-proctable'
 gem 'chartkick'
 gem 'chart-js-rails'
 
+# API
+gem 'httparty'
+gem 'nokogiri'
+
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem "sprockets-rails"
 

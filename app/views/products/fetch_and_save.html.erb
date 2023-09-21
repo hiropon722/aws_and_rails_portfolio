@@ -1,0 +1,27 @@
+<% content_for :title do %>
+  AWS-and-Rails-Portfolio RakutenApiService
+<% end %>
+
+<% content_for :content do %>
+<h1>楽天市場商品情報</h1>
+
+<%= form_with(url: fetch_and_save_path, method: :get) do |form| %>
+  <%= form.label :keyword, "検索キーワード" %>
+  <%= form.text_field :keyword, id: "keyword" %>
+  <%= form.submit "検索" %>
+<% end %>
+
+<% if @items.present? %>
+  <ul>
+    <% @items.each do |item| %>
+      <li>
+        <h2><%= item['Item']['itemName'] %></h2>
+        <p>価格: <%= item['Item']['itemPrice'] %> 円</p>
+        <p><a href="<%= item['Item']['itemUrl'] %>" target="_blank">詳細を見る</a></p>
+      </li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>商品が見つかりませんでした。</p>
+<% end %>
+<% end %>
