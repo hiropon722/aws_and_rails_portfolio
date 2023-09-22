@@ -11,6 +11,8 @@ gem 'rails-i18n'
 gem 'devise-i18n'
 
 gem 'haml'
+
+# excel
 gem 'roo'
 
 gem 'ffi'

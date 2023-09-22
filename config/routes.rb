@@ -10,4 +10,6 @@ Rails.application.routes.draw do
   get '/typing_game', to: 'typing_game#index'
   get '/words/random_word', to: 'words#random_word'
   get 'products/fetch_and_save', to: 'products#fetch_and_save', as: 'fetch_and_save'
+  post 'upload_excel', to: 'products#upload_excel'
+  get '/products/show_result', to: 'products#show_result'
 end
