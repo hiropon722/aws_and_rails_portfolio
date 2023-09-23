@@ -5,6 +5,7 @@ class ProductsController < ApplicationController
   def upload_excel
     api_key = ENV['RAKUTEN_API_KEY'] # .env ファイルからAPIキーを取得
     uploaded_file = params[:excel_file]
+    @products = []
   
     if uploaded_file
       # エクセルファイルをロード
@@ -14,7 +15,6 @@ class ProductsController < ApplicationController
       excel.default_sheet = excel.sheets.first
   
       # 各行を処理して商品情報を取得
-      products = []
       (2..excel.last_row).each do |row|
         product_name = excel.cell(row, 1)
         manufacturer_number = excel.cell(row, 2)
@@ -23,20 +23,21 @@ class ProductsController < ApplicationController
   
         # 商品情報を使って楽天市場で最安値を検索し、productsに追加
         cheapest_price = RakutenApiService.new(api_key).search_cheapest_price(keyword)
-  
-        products << { product_name: product_name, manufacturer_number: manufacturer_number, keyword: keyword, asin: asin, cheapest_price: cheapest_price }
+        @products << { product_name: product_name, manufacturer_number: manufacturer_number, keyword: keyword, asin: asin, cheapest_price: cheapest_price }
       end
   
-      # @productsに格納
-      @products = products
-  
       flash[:success] = 'エクセルファイルを処理しました。'
+      show_result
     else
       flash[:error] = 'エクセルファイルを選択してください。'
+      redirect_to '/products/show_result'
     end
+    
+  end
   
-    # リダイレクト先を設定
-    redirect_to '/products/show_result'
+  def show_result
+      @products = @products
+      render 'show_result'
   end
 
 

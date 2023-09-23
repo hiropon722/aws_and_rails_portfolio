@@ -5,6 +5,28 @@
 <% content_for :content do %>
   <h1>楽天市場商品情報出力結果</h1>
 
-<%= debug @products %>
+  <table>
+    <thead>
+      <tr>
+        <th>商品名</th>
+        <th>製造番号</th>
+        <th>キーワード</th>
+        <th>ASIN</th>
+        <th>最安値</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @products.each do |product| %>
+        <tr>
+          <td><%= product[:product_name] %></td>
+          <td><%= product[:manufacturer_number] %></td>
+          <td><%= product[:keyword] %></td>
+          <td><%= product[:asin] %></td>
+          <td><%= product[:cheapest_price] %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
   
 <% end %>

@@ -21,11 +21,11 @@ class RakutenApiService
   
     # レスポンスから最安値情報を抽出（例: "Item"ハッシュ内の "minPrice"）
     if parsed_response["Items"] && parsed_response["Items"].any?
-      min_price = parsed_response["Items"].min_by { |item| item["Item"]["minPrice"] }
-      cheapest_price = min_price["Item"]["minPrice"]
+       min_price = parsed_response["Items"].min_by { |item| item["Item"]["itemPrice"] }
+       cheapest_price = min_price["Item"]["itemPrice"]
     else
       # レスポンスから最安値情報が見つからなかった場合の処理
-      cheapest_price = 1
+      cheapest_price = 0
     end
   
     cheapest_price
